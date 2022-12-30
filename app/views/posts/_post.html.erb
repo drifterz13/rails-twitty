@@ -1,12 +1,17 @@
-<div class="card" style="width: 24rem;">
-  <div class="card-body">
-    <div class="card-subtitle mb-2">
-      <span class="fw-bolder">
-        <%= current_user.email %>
-      </span>
-      <span class="fw-light fs-6">-</span>
-      <span class="text-muted fw-normal"><%= time_ago_in_words(post.created_at) %></span>
+<%= turbo_frame_tag dom_id(post) do %>
+  <div class="card" style="width: 24rem;">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="card-subtitle">
+          <span class="fw-bolder">
+            <%= current_user.email %>
+          </span>
+          <span class="fw-light fs-6">-</span>
+          <span class="text-muted fw-normal"><%= time_ago_in_words(post.created_at) %></span>
+        </div>
+        <%= render "posts/menu", { post: post } %>
+      </div>
+      <p class="card-text"><%= post.body %></p>
     </div>
-    <p class="card-text"><%= post.body %></p>
   </div>
-</div>
+<% end %>

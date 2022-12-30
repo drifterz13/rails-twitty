@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <div class="rounded-circle p-2 d-flex justify-content-center align-items-center" role="icon" data-bs-toggle="dropdown" aria-label="post menu" style="cursor:pointer; width:32px; height:32px; box-sizing:border-box">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+      <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+    </svg>
+  </div>
+  <ul class="dropdown-menu" aria-labelledby="post menu">
+    <li>
+      <%= button_to "Delete", post_path(post.id), method: :delete, class: "dropdown-item"  %>
+    </li>
+  </ul>
+</div>
