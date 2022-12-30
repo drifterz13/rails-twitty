@@ -1,7 +1,12 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
-
+<div class="card" style="width: 24rem;">
+  <div class="card-body">
+    <div class="card-subtitle mb-2">
+      <span class="fw-bolder">
+        <%= current_user.email %>
+      </span>
+      <span class="fw-light fs-6">-</span>
+      <span class="text-muted fw-normal"><%= time_ago_in_words(post.created_at) %></span>
+    </div>
+    <p class="card-text"><%= post.body %></p>
+  </div>
 </div>

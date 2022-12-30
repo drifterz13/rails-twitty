@@ -1,0 +1,14 @@
+<% flash.each do |flash_type, message| %>
+  <div aria-live="polite" aria-atomic="true" class="position-relative" data-controller="flash">
+    <div class="toast-container position-absolute top-0 end-0 p-3">
+      <div class="<%= flash_class_by(flash_type) %> toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true" data-flash-target="toast">
+        <div class="d-flex">
+          <div class="toast-body">
+            <%= message %>
+          </div>
+          <button type="button" class="btn-close me-2 m-auto <%= flash_type == "alert" ? "btn-close-white" : "" %>" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

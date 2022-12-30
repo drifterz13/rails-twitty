@@ -1,1 +1,10 @@
-<h1>Home page</h1>
+<%= form_with scope: :post, url: posts_path, method: :post do |f| %>
+  <%= f.label :body, "Body: ", class: "form-label" %>
+  <%= f.text_area :body, class: "form-control" %>
+  <%= f.submit "Create", class: "btn btn-primary mt-3" %>
+<% end %>
+<turbo-frame id="posts" class="mt-5 d-grid gap-3">
+  <% @posts.each do |post| %>
+    <%= render "posts/post", post: post %>
+  <% end %>
+</turbo-frame>
