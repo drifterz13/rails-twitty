@@ -1,8 +1,4 @@
 <%= turbo_stream.update dom_id(@post, :likes) do %>
-  <% if @post.likes.count > 0 %>
-    <span class="ms-1"><%= @post.likes.count %></span>
-  <% else %>
-    <%= nil %>
-  <% end %>
+  <%= @post.likes.count > 0 ? @post.likes.count : nil %>
 <% end %>
 <%= turbo_stream.prepend :flash, partial: "layouts/flash_message" %>

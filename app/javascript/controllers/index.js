@@ -12,3 +12,6 @@ application.register("form", FormController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import LinkController from "./link_controller"
+application.register("link", LinkController)

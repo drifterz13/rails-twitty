@@ -1,2 +1,2 @@
 <%= turbo_stream.prepend :posts, partial: "posts/post", locals: { post: @post } %>
-<%= turbo_stream.prepend :flash, partial: "layouts/flash_message" %>
+<%= turbo_stream.update :flash, partial: "layouts/flash_message" %>

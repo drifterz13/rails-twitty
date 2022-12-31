@@ -1,12 +1,16 @@
-<div class="container">
+<div class="w-3/5 mx-auto">
   <div class="mb-5">
     <%= render @post %>
   </div>
   <div class="mb-5">
     <%= form_with model: [@post, Comment.new], method: :post, data: { controller: "form", action: "turbo:submit-end->form#reset" } do |f| %>
-      <div class="input-group mb-3">
-        <%= f.text_field :body, class: "form-control", placeholder: "Your reply message", "aria-label": "Your reply", "aria-describedby": "reply-button-addon" %>
-        <%= f.submit "Reply", class: "btn btn-outline-secondary", id: "reply-button-addon" %>
+      <div class="relative">
+        <%= f.text_area :body, 
+        rows: 4,
+        class: "block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary focus:border-primary resize-none",
+        placeholder: "Your reply message" 
+      %>
+        <%= f.submit "Reply", class: "btn btn-primary btn-sm absolute right-2.5 bottom-2.5", id: "reply-button-addon" %>
       </div>
     <% end %>
   </div>
