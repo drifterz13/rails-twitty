@@ -14,7 +14,7 @@
       </div>
     <% end %>
   </div>
-  <%= content_tag :div, id: dom_id(@post, :comments) do %>
+  <%= content_tag :div, id: dom_id(@post, :comments), class: "flex flex-col gap-3" do %>
     <% @post.comments.each do |comment| %>
       <%= render "comments/comment", { comment: comment } %>
     <% end %>

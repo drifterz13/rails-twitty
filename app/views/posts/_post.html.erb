@@ -5,7 +5,7 @@
         <div class="flex justify-between items-center mb-2">
           <div class="flex gap-1 items-center">
             <span class="font-semibold">
-              <%= current_user.email %>
+              <%= post.user.username || post.user.email %>
             </span>
             <span class="text-xs">●</span>
             <span class="text-gray-400 font-light"><%= time_ago_in_words(post.created_at) %></span>
