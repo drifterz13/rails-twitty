@@ -1,17 +1,17 @@
 <div class="w-3/5 mx-auto flex flex-col items-center">
   <%= form_with scope: :post, url: posts_path, method: :post, data: { controller: "form", action: "turbo:submit-end->form#reset" }, class: "w-full" do |f| %>
-    <%= f.text_area :body, 
-      rows: 4,
-      class: "block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary focus:border-primary resize-none",
-      placeholder: "What's going on?" 
-    %>
-    <%= f.submit "Send", class: "btn mt-3 float-right" %>
+    <div class="relative">
+      <%= f.text_area :body, 
+        rows: 4,
+        class: "block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary focus:border-primary resize-none",
+        placeholder: "What's going on?" 
+      %>
+      <%= f.submit "Send", class: "btn btn-primary btn-sm absolute right-2.5 bottom-2.5", id: "reply-button-addon" %>
+    </div>
   <% end %>
   <div id="posts" class="mt-5 w-full flex flex-col gap-3">
     <% @posts.each do |post| %>
-      <div class="cursor-pointer" data-controller="link" data-url="<%= post_path(post.id) %>" data-action="click->link#to">
-        <%= render "posts/post", post: post %>
-      </div>
+      <%= render "posts/post", post: post %>
     <% end %>
   </div>
 </div>
