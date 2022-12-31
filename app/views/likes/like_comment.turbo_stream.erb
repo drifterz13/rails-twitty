@@ -1,0 +1,4 @@
+<%= turbo_stream.update dom_id(@comment, :likes) do %>
+  <%= @comment.likes.count > 0 ? @comment.likes.count : nil %>
+<% end %>
+<%= turbo_stream.prepend :flash, partial: "layouts/flash_message" %>

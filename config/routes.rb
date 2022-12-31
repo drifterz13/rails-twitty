@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  post "/likes/:post_id", to: "likes#like", as: "likes"
+  post "/like/posts/:post_id", to: "likes#like_post", as: "like_post"
+  post "/like/comments/:comment_id", to: "likes#like_comment", as: "like_comment"
 end
