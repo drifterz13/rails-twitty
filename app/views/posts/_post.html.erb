@@ -7,8 +7,8 @@
             <span class="font-semibold">
               <%= post.user.username || post.user.email %>
             </span>
-            <span class="text-xs">●</span>
-            <span class="text-gray-400 font-light"><%= time_ago_in_words(post.created_at) %></span>
+            <span class="text-xxs">●</span>
+            <span class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></span>
           </div>
           <%= render "posts/menu", { post: post } %>
         </div>
