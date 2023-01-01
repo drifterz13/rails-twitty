@@ -1,10 +1,9 @@
 module ApplicationHelper
-  def flash_class_by(flash_type)
-    case flash_type
-    when "notice"
-      "bg-info"
-    when "alert"
-      "bg-danger text-white"
+  def avatar_url
+    if current_user&.avatar&.attached?
+      current_user.avatar.variant(:thumb)
+    else
+      '/images/user.png'
     end
   end
 end
