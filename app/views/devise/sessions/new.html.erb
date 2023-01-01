@@ -1,20 +1,18 @@
-<div class="mx-auto w-3/5">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="mb-6">
-      <%= f.label :email, class: "mb-2 text-sm font-semibold" %>
-      <%= f.email_field :email, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-focus focus:border-primary-focus block w-full p-2.5" %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="mb-6">
+    <%= f.label :email, class: "mb-2 text-sm font-semibold" %>
+    <%= f.email_field :email, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-focus focus:border-primary-focus block w-full p-2.5" %>
+  </div>
+  <div class="mb-6">
+    <%= f.label :password, class: "mb-2 text-sm font-semibold" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-focus focus:border-primary-focus block w-full p-2.5" %>
+  </div>
+  <% if devise_mapping.rememberable? %>
+    <div class="mb-6 flex items-baseline gap-x-2">
+      <%= f.check_box :remember_me, class: "w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-primary-focus" %>
+      <%= f.label :remember_me %>
     </div>
-    <div class="mb-6">
-      <%= f.label :password, class: "mb-2 text-sm font-semibold" %>
-      <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-focus focus:border-primary-focus block w-full p-2.5" %>
-    </div>
-    <% if devise_mapping.rememberable? %>
-      <div class="mb-6">
-        <%= f.check_box :remember_me, class: "w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-primary-focus" %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
-    <%= f.submit "Log in", class: "btn" %>
   <% end %>
-</div>
+  <%= f.submit "Log in", class: "btn" %>
+<% end %>
