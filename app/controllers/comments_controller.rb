@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_comment, only: %i[show destroy]
 
-  # GET /comments or /comments.json
+  # GET /comments
   def index
     @comments = Comment.all
   end
 
-  # GET /comments/1 or /comments/1.json
+  # GET /comments/1
   def show
   end
 
@@ -15,11 +15,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  # GET /comments/1/edit
-  def edit
-  end
-
-  # POST /comments or /comments.json
+  # POST /comments
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user_id: current_user.id))
@@ -30,19 +26,6 @@ class CommentsController < ApplicationController
         format.turbo_stream { flash.now[:notice] = "Comment was successfully created." }
       else
         format.html { render @post, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /comments/1 or /comments/1.json
-  def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
