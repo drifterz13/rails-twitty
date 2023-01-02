@@ -6,12 +6,14 @@ export default class extends Controller {
   static targets = ['click']
 
   connect() {
+    this.element.addEventListener('click', this.handleClick)
     this.clickTargets.forEach((clickTarget) => {
       clickTarget.addEventListener('click', this.handleClick)
     })
   }
 
   disconnect() {
+    this.element.addEventListener('click', this.handleClick)
     this.clickTargets.forEach((clickTarget) => {
       clickTarget.removeEventListener('click', this.handleClick)
     })
