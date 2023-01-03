@@ -1,7 +1,2 @@
-<%= turbo_stream.update dom_id(@post, :like_button) do %>
-  <%= render "likes/like_button", post: @post %>
-<% end %>
-<%= turbo_stream.update dom_id(@post, :likes) do %>
-  <%= @post.likes.count > 0 ? @post.likes.count : nil %>
-<% end %>
+<%= render_like_button_turbo_stream(@post) %>
 <%= turbo_stream.prepend :flash, partial: "layouts/flash_message" %>

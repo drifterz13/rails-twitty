@@ -17,16 +17,9 @@
             </div>
             <p><%= post.body %></p>
             <div class="card-actions">
-              <div class="flex gap-1 items-center text-sm">
-                <%= turbo_frame_tag dom_id(post, :like_button) do %>
-                  <%= render "likes/like_button", post: post %>
-                <% end %>
-                <%= turbo_frame_tag dom_id(post, :likes) do %>
-                  <% unless post.likes.count == 0 %>
-                    <%= post.likes.count %>
-                  <% end %>
-                <% end %>
-              </div>
+              <%= turbo_frame_tag dom_id(post, :like_button), data: { "link-target": "click" } do %>
+                <%= render "likes/like_button", post: post %>
+              <% end %>
             </div>
           </div>
         </div>

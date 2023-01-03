@@ -11,4 +11,8 @@ module LikesHelper
       like_post_path(post.id)
     end
   end
+
+  def render_like_button_turbo_stream(post)
+    turbo_stream.update dom_id(post, :like_button), partial: "likes/like_button", locals: { post: post }
+  end
 end

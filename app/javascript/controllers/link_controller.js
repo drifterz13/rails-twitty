@@ -6,14 +6,12 @@ export default class extends Controller {
   static targets = ['click']
 
   connect() {
-    this.element.addEventListener('click', this.handleClick)
     this.clickTargets.forEach((clickTarget) => {
       clickTarget.addEventListener('click', this.handleClick)
     })
   }
 
   disconnect() {
-    this.element.addEventListener('click', this.handleClick)
     this.clickTargets.forEach((clickTarget) => {
       clickTarget.removeEventListener('click', this.handleClick)
     })
@@ -25,6 +23,6 @@ export default class extends Controller {
 
   to() {
     const url = this.element.dataset.url
-    Turbo.visit(url, { action: 'replace' })
+    Turbo.visit(url, { action: 'advance' })
   }
 }
